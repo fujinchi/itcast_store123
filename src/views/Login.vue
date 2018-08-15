@@ -36,6 +36,7 @@ export default {
 			// 处理登录
 			async handleLogin () {
 				var response = await axios.post('http://localhost:8888/api/private/v1/login', this.formData);
+				
 				// var status = response.data.meta.status;
 				// var msg = response.data.meta.msg;
 				// 解构赋值
@@ -54,6 +55,7 @@ export default {
 					// 登录失败
 					this.$message.error(msg);
 				}
+
 
 				// axios
 				// 	.post('http://localhost:8888/api/private/v1/login', this.formData);
