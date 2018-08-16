@@ -51,6 +51,7 @@ export default {
 					var token = response.data.data.token;
 					sessionStorage.setItem('token',token);
 					// 跳转到后台首页
+					this.$router.push('/');
 				} else {
 					// 登录失败
 					this.$message.error(msg);
@@ -58,7 +59,7 @@ export default {
 
 
 				// axios
-				// 	.post('http://localhost:8888/api/private/v1/login', this.formData);
+				// 	.post('http ://localhost:8888/api/private/v1/login', this.formData);
 				// 	.then((response) => {
 				// 		var status = response.data.meta.status;
 				// 		var msg = response.data.meta.msg;
