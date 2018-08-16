@@ -33,53 +33,53 @@ export default {
 		};
 	},
 	methods: {
-			// 处理登录
-			async handleLogin () {
-				var response = await axios.post('http://localhost:8888/api/private/v1/login', this.formData);
-				
-				// var status = response.data.meta.status;
-				// var msg = response.data.meta.msg;
-				// 解构赋值
-				var { data: { meta: { status, msg } } } = response;
+		// 处理登录
+		async handleLogin () {
+			var response = await axios.post('http://localhost:8888/api/private/v1/login', this.formData);
+			
+			// var status = response.data.meta.status;
+			// var msg = response.data.meta.msg;
+			// 解构赋值
+			var { data: { meta: { status, msg } } } = response;
 
-				if (status === 200) {
-					// 登陆成功
-					// 提示
-					this.$message.success(msg);
-					// 记录 token
-					// var { data: data: {token} } = response;  (---> 解构赋值)
-					var token = response.data.data.token;
-					sessionStorage.setItem('token',token);
-					// 跳转到后台首页
-					this.$router.push('/');
-				} else {
-					// 登录失败
-					this.$message.error(msg);
-				}
-
-
-				// axios
-				// 	.post('http ://localhost:8888/api/private/v1/login', this.formData);
-				// 	.then((response) => {
-				// 		var status = response.data.meta.status;
-				// 		var msg = response.data.meta.msg;
-				// 		if (status === 200) {
-				// 			// 登陆成功
-				// 			// 提示
-				// 			this.$message.success(msg);
-				// 			// 记录 token
-				// 			var token = response.data.data.token;
-				// 			sessionStorage.setItem('token',token);
-				// 			// 跳转到后台首页
-				// 		} else {
-				// 			// 登录失败
-				// 			this.$message.error(msg);
-				// 		}
-				// 	});
-				// 	.catch((err) => {
-				// 		console.log(err);
-				// 	})
+			if (status === 200) {
+				// 登陆成功
+				// 提示
+				this.$message.success(msg);
+				// 记录 token
+				// var { data: data: {token} } = response;  (---> 解构赋值)
+				var token = response.data.data.token;
+				sessionStorage.setItem('token',token);
+				// 跳转到后台首页
+				this.$router.push('/');
+			} else {
+				// 登录失败
+				this.$message.error(msg);
 			}
+
+
+			// axios
+			// 	.post('http://localhost:8888/api/private/v1/login', this.formData);
+			// 	.then((response) => {
+			// 		var status = response.data.meta.status;
+			// 		var msg = response.data.meta.msg;
+			// 		if (status === 200) {
+			// 			// 登陆成功
+			// 			// 提示
+			// 			this.$message.success(msg);
+			// 			// 记录 token
+			// 			var token = response.data.data.token;
+			// 			sessionStorage.setItem('token',token);
+			// 			// 跳转到后台首页
+			// 		} else {
+			// 			// 登录失败
+			// 			this.$message.error(msg);
+			// 		}
+			// 	});
+			// 	.catch((err) => {
+			// 		console.log(err);
+			// 	})
+		}
 	}
 }
 </script>

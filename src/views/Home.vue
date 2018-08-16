@@ -12,7 +12,8 @@
                 </el-col>
                 <el-col :span="1">
                     <div class="logout">
-                        <a href="#">退出</a>
+                        <!-- 把a标签当成按钮来用的时候，使用prevent阻止默认行为执行 -->
+                        <a href="#" @click.prevent="handleLogout">退出</a>
                     </div>
                 </el-col>
             </el-row>
@@ -21,7 +22,7 @@
             <!-- 侧边导航栏 -->
             <el-aside class="aside" width="200px">
                 <el-menu
-                unique-opened
+                uni que-opened
                 router
                 default-active="users">
                     <el-submenu index="1">
@@ -99,11 +100,23 @@ export default {
     // 页面呈现出来之前要做的事
     beforeCreate () {
         // 判断是否登录，根据token来判断
+        // sessionStorage.getItem()   获取
         var token = sessionStorage.getItem('token');
         if(!token){
             // 提示
             this.$message.warning('请先登录');
             // 没有token，跳转到登录页面
+            this.$router.push('/login');
+        }
+    },
+    methods: {
+        // 退出
+        handleLogout () {
+            // 提示退出成功
+            this.$message.success('退出成功');
+            // 清除token
+            sessionStorage.clear();
+            // 跳转到登录页面
             this.$router.push('/login');
         }
     }
