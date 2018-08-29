@@ -90,7 +90,10 @@
                 </el-menu>
             </el-aside>
             <!-- 主体 -->
-            <el-main class="main">Main</el-main>
+            <el-main class="main">
+                <!-- 对应的组件内容渲染到router-view中 -->
+                <router-view></router-view>
+            </el-main>
         </el-container>
     </el-container>
 </template>
